@@ -11,34 +11,34 @@ const Register = () => {
                     <h1 className="text-danger mt-5">Create Your Account!!!</h1>
 
                     <form className='mt-3'>
-                        <div class="row mb-3">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">Email :</label>
-                            <div class="col-sm-10">
-                                <input type="email" class="form-control" id="inputEmail3" required />
+                        <div className="row mb-3">
+                            <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Email :</label>
+                            <div className="col-sm-10">
+                                <input type="email" className="form-control" id="inputEmail3" required />
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <label for="inputPassword3" class="col-sm-2 col-form-label">Password :</label>
-                            <div class="col-sm-10">
-                                <input type="password" class="form-control" id="inputPassword3" required />
+                        <div className="row mb-3">
+                            <label htmlFor="inputPassword3" className="col-sm-2 col-form-label">Password :</label>
+                            <div className="col-sm-10">
+                                <input type="password" className="form-control" id="inputPassword3" required />
                             </div>
                         </div>
 
                         <input type="submit" value="Register" className="bg-danger px-3 py-2 rounded-3 text-white" />
 
-                        <NavLink to="/login">
-                            <p className="pt-5 text-dec">Already Have An Account?</p>
+                        <NavLink className="text-decoration-none" to="/login">
+                            <p className="pt-5 fw-bold">Already Have An Account?</p>
                         </NavLink>
                     </form>
 
                     {/* <form >
                         <div className="mb-3">
-                            <label htmlFor="exampleInputEmail1" className="form-label">Email address :</label>
+                            <label htmlhtmlFor="exampleInputEmail1" className="form-label">Email address :</label>
                             <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='Your email address' required />
 
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
+                            <label htmlhtmlFor="exampleInputPassword1" className="form-label">Password</label>
                             <input type="password" className="form-control" id="exampleInputPassword1" placeholder='Password' required />
                         </div>
 
