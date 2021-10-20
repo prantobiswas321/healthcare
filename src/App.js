@@ -11,7 +11,7 @@ import Footer from './components/Footer/Footer';
 import ServiceDetails from './components/ServiceDetails/ServiceDetails';
 import AuthProvider from './components/Context/AuthProvider';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-import NotFound from './components/NotFound/NotFound';
+import NotFound from './components/PageNotFound/NotFound';
 
 function App() {
   return (
