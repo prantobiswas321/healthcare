@@ -33,7 +33,7 @@ const Register = () => {
                         <input type="submit" value="Register" className="bg-danger px-3 py-2 rounded-3 text-white" />
 
                         <NavLink className="text-decoration-none" to="/login">
-                            <p className="pt-5 fw-bold">Already Have An Account?</p>
+                            <p className="pt-5 fw-bold text-dark">If you already have An Account?</p>
                         </NavLink>
                     </form>
 

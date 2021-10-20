@@ -37,7 +37,7 @@ const Login = () => {
                     <button className="btn btn-warning" onClick={handleGoogleSignIn}>Sign In With Google</button>
 
                     <NavLink className="text-decoration-none fw-bold" to="/register">
-                        <p className="pt-3">Create new account!!</p>
+                        <p className="pt-3 text-dark fw-bold">Create new account!!</p>
                     </NavLink>
 
                 </div>
