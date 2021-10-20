@@ -11,14 +11,15 @@ const ServiceDetails = () => {
             .then(res => res.json())
             .then(data => setServices(data))
     }, []);
-
-    // console.log(services);
-
-    const result = services.find(single => single.id === parseInt(idNumber));
-    // console.log(result);
+    const detail = services.find(single => single.id === parseInt(idNumber));
     return (
-        <div>
-
+        <div className='bg-secondary'>
+            <div className="py-5 text-white">
+                <img src={detail?.image} className="mx-auto w-50 rounded-3" alt="result_image" />
+                <h1 className="mt-3">Name: {detail?.name}</h1>
+                <h4 className="mx-5 px-5">Description: {detail?.description}</h4>
+                <h4>Cost: ${detail?.cost}</h4>
+            </div>
         </div>
     );
 };

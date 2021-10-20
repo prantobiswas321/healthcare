@@ -11,8 +11,8 @@ const Footer = () => {
     const iconMail = <FontAwesomeIcon icon={faEnvelope} />
     const iconPhone = <FontAwesomeIcon icon={faPhoneSquare} />
     return (
-        <div className="header-text-color mt-5 bg-color">
-            <div className="container p-5 d-flex flex-column flex-lg-row justify-content-lg-between bd-highlight mt-5">
+        <div className="header-text-color bg-color">
+            <div className="container p-5 d-flex flex-column flex-lg-row justify-content-lg-between bd-highlight">
 
                 <div>
                     <h3 className="fw-bold">{iconHeart} CareSenior</h3>
