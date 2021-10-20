@@ -1,26 +1,28 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import image1 from '../../images/register.jpg';
+import useAuth from '../Context/useAuth';
 import './Register.css';
 
 const Register = () => {
+    const { handleEmail, handlePassword, handleAddUser } = useAuth();
     return (
         <div>
             <div className="container ms-5 row row-cols-lg-2 row-cols-md-2 row-cols-sm-1 row-cols-1">
                 <div className="col my-auto">
                     <h1 className="text-danger mt-5">Create Your Account!!!</h1>
 
-                    <form className='mt-3'>
+                    <form onSubmit={handleAddUser} className='mt-3'>
                         <div className="row mb-3">
                             <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Email :</label>
                             <div className="col-sm-10">
-                                <input type="email" className="form-control" id="inputEmail3" required />
+                                <input type="email" className="form-control" id="inputEmail3" onBlur={handleEmail} required />
                             </div>
                         </div>
                         <div className="row mb-3">
                             <label htmlFor="inputPassword3" className="col-sm-2 col-form-label">Password :</label>
                             <div className="col-sm-10">
-                                <input type="password" className="form-control" id="inputPassword3" required />
+                                <input type="password" className="form-control" id="inputPassword3" onBlur={handlePassword} required />
                             </div>
                         </div>
 

@@ -4,8 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeartbeat } from '@fortawesome/free-solid-svg-icons';
 import "./Header.css";
 import useAuth from '../Context/useAuth';
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
+
+    const signOutIcon = <FontAwesomeIcon icon={faSignOutAlt} />
 
     const { user, handleLogOut } = useAuth();
 
@@ -35,7 +38,7 @@ const Header = () => {
 
                         {
                             user.email ?
-                                <button className="btn btn-success" onClick={handleLogOut}><span className="fw-bold">Log Out</span> {user.email}</button>
+                                <button className="btn btn-success" onClick={handleLogOut}>{signOutIcon} <span className="fw-bold text-info">Log Out</span> {user.email}</button>
                                 :
                                 <li className="nav-item">
                                     <NavLink style={{ color: 'white' }} activeStyle={activeStyle} className="nav-link" to="/login">Login</NavLink>
