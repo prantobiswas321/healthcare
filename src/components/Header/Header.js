@@ -1,10 +1,10 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeartbeat } from '@fortawesome/free-solid-svg-icons';
 import "./Header.css";
 import useAuth from '../Context/useAuth';
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { NavHashLink } from 'react-router-hash-link/dist/react-router-hash-link.cjs.development';
 
 const Header = () => {
 
@@ -12,10 +12,6 @@ const Header = () => {
 
     const { user, handleLogOut } = useAuth();
 
-    const activeStyle = {
-        fontWeight: "bold",
-        color: "#5CDB95"
-    }
     // react awesome icon
     const iconHeart = <FontAwesomeIcon icon={faHeartbeat} />
     return (
@@ -27,23 +23,42 @@ const Header = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div className="ms-auto fs-5 fw-bold navbar-nav">
-                        <NavLink style={{ color: 'white' }} activeStyle={activeStyle} className="nav-link" to="/home">Home</NavLink>
-                        <NavLink style={{ color: 'white' }} activeStyle={activeStyle} className="nav-link" to="/account">Account</NavLink>
-                        <NavLink style={{ color: 'white' }} activeStyle={activeStyle} className="nav-link" to="/about">About</NavLink>
-                        <NavLink style={{ color: 'white' }} activeStyle={activeStyle} className="nav-link" to="/register">Register</NavLink>
-                        {/* <NavLink style={{ color: 'white' }} activeStyle={activeStyle} className="nav-link" to="/login">Login</NavLink> */}
+                        <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li className="nav-item navLinks">
+                                <NavHashLink style={{ color: 'white' }} className="me-3 text-decoration-none" to="/home" activeClassName="selected"
+                                    activeStyle={{ color: '#00FFFF' }} >Home</NavHashLink>
+                            </li>
 
+                            <li className="nav-item navLinks">
+                                <NavHashLink style={{ color: 'white' }} className="me-3 text-decoration-none" to="/home#services" activeClassName="selected"
+                                    activeStyle={{ color: '#00FFFF' }} >Services</NavHashLink>
+                            </li>
 
+                            <li className="nav-item navLinks">
+                                <NavHashLink style={{ color: 'white' }} className="me-3 text-decoration-none" to="/account" activeClassName="selected"
+                                    activeStyle={{ color: '#00FFFF' }} >Account</NavHashLink>
+                            </li>
 
+                            <li className="nav-item navLinks">
+                                <NavHashLink style={{ color: 'white' }} className="me-3 text-decoration-none" to="/about" activeClassName="selected"
+                                    activeStyle={{ color: '#00FFFF' }} >About</NavHashLink>
+                            </li>
 
-                        {
-                            user.email ?
-                                <button className="btn btn-success" onClick={handleLogOut}>{signOutIcon} <span className="fw-bold text-info">Log Out</span> {user.email}</button>
-                                :
-                                <li className="nav-item">
-                                    <NavLink style={{ color: 'white' }} activeStyle={activeStyle} className="nav-link" to="/login">Login</NavLink>
-                                </li>
-                        }
+                            <li className="nav-item navLinks">
+                                <NavHashLink style={{ color: 'white' }} className="me-3 text-decoration-none" to="/register" activeClassName="selected"
+                                    activeStyle={{ color: '#00FFFF' }}>Register</NavHashLink>
+                            </li>
+
+                            {
+                                user.email ?
+                                    <button className="btn btn-success" onClick={handleLogOut}>{signOutIcon} <span className="fw-bold text-info">Log Out</span> {user.email}</button>
+                                    :
+                                    <li className="nav-item">
+                                        <NavHashLink style={{ color: 'white' }} className="me-3 text-decoration-none navLinks" to="/login" activeClassName="selected"
+                                            activeStyle={{ color: '#00FFFF' }} >Login</NavHashLink>
+                                    </li>
+                            }
+                        </ul>
 
 
                     </div>

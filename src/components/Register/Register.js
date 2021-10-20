@@ -5,12 +5,12 @@ import useAuth from '../Context/useAuth';
 import './Register.css';
 
 const Register = () => {
-    const { handleEmail, handlePassword, handleAddUser } = useAuth();
+    const { handleEmail, handlePassword, handleAddUser, error } = useAuth();
     return (
         <div>
-            <div className="container ms-5 row row-cols-lg-2 row-cols-md-2 row-cols-sm-1 row-cols-1">
+            <div className="container mx-auto row row-cols-lg-2 row-cols-md-2 row-cols-sm-1 row-cols-1">
                 <div className="col my-auto">
-                    <h1 className="text-danger mt-5">Create Your Account!!!</h1>
+                    <h1 className="textColor mt-5">Create Your Account!!!</h1>
 
                     <form onSubmit={handleAddUser} className='mt-3'>
                         <div className="row mb-3">
@@ -24,6 +24,10 @@ const Register = () => {
                             <div className="col-sm-10">
                                 <input type="password" className="form-control" id="inputPassword3" onBlur={handlePassword} required />
                             </div>
+                        </div>
+
+                        <div className="row mb-3">
+                            {error}
                         </div>
 
                         <input type="submit" value="Register" className="bg-danger px-3 py-2 rounded-3 text-white" />

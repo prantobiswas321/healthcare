@@ -15,7 +15,7 @@ const Servicee = (props) => {
                         <h5 className="card-text">Cost: ${cost}</h5>
                         <br />
                         <Link to={url}>
-                            <button className="btn btn-danger my-3">Details</button>
+                            <button className="btn btn-success my-3">Details</button>
                         </Link>
                     </div>
                 </div>

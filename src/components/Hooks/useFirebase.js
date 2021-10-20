@@ -7,6 +7,7 @@ initializeFirebase();
 
 
 const useFirebase = () => {
+    const [error, setError] = useState('');
     const [user, setUser] = useState({});
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -20,12 +21,7 @@ const useFirebase = () => {
         SetIsLoading(true);
         signInWithPopup(auth, googleProvider)
             .then(result => {
-
-
                 console.log(result.user);
-
-
-
             })
             .finally(() => SetIsLoading(false));
     }
@@ -34,71 +30,73 @@ const useFirebase = () => {
         SetIsLoading(true);
         signOut(auth).then(() => {
             setUser({});
+            setError('');
         })
             .finally(() => SetIsLoading(false));
     }
 
     const handleEmail = event => {
-        // console.log(event.target.value);
         setEmail(event.target.value);
-
     }
 
     const handlePassword = event => {
-        // console.log(event.target.value);
         setPassword(event.target.value);
-
     }
 
     const handleAddUser = (event) => {
         event.preventDefault();
         if (password.length < 6) {
+            setError('Password must be 6 characters long')
             return;
         }
         else {
             //  console.log(email, password);
             createUserWithEmailAndPassword(auth, email, password)
                 .then(result => {
-                    //  console.log(result.user);
-
+                    if (user.email) {
+                        setError('');
+                    }
+                    else {
+                        setError('Registration Successful');
+                    }
                 })
-
+                .catch(error => {
+                    setError(error.message);
+                })
         }
-
-
-
-
     }
 
     const handleRegister = (event) => {
         event.preventDefault();
         signInWithEmailAndPassword(auth, email, password)
             .then(result => {
-                console.log(result.user);
+                if (!user.email) {
+                    setError('Login Successful');
+                }
+                else {
+                    setError('');
+                }
             })
-
-
+            .catch(error => {
+                setError('Wrong password');
+            })
     }
-
 
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
-                // User is signed in, see docs for a list of available properties
-                // https://firebase.google.com/docs/reference/js/firebase.User
                 setUser(user)
-                // ...
-            } else {
-                // User is signed out
-                // ...
+            }
+            else {
+
             }
             SetIsLoading(false);
         });
     }, [auth])
 
-
-    return { handleGoogleSignIn, user, handleLogOut, handleEmail, handlePassword, handleAddUser, handleRegister, isLoading };
-
+    return {
+        handleGoogleSignIn, user, handleLogOut, handleEmail, handlePassword, handleAddUser, handleRegister, isLoading, error
+    };
 }
 
 export default useFirebase;

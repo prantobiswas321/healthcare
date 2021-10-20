@@ -16,17 +16,18 @@ const Footer = () => {
 
                 <div>
                     <h3 className="fw-bold">{iconHeart} CareSenior</h3>
-                    <p>We give seniors the love they deserve</p>
+                    <p>We give seniors the love they deserve <br />
+                        We offer you the best support</p>
                 </div>
 
                 <div className="mb-3">
                     <h4 className="fw-bold">Quick links</h4>
                     <nav className="navbar-nav">
-                        <NavLink style={{ textDecoration: 'none', color: '#5CDB95' }} to='/home'>Home</NavLink>
-                        <NavLink style={{ textDecoration: 'none', color: '#5CDB95' }} to='/account'>Account</NavLink>
-                        <NavLink style={{ textDecoration: 'none', color: '#5CDB95' }} to='/about'>About</NavLink>
-                        <NavLink style={{ textDecoration: 'none', color: '#5CDB95' }} to='/Register'>Register</NavLink>
-                        <NavLink style={{ textDecoration: 'none', color: '#5CDB95' }} to='/login'>Login</NavLink>
+                        <NavLink style={{ textDecoration: 'none', color: '#ADADAD' }} to='/home'>Home</NavLink>
+                        <NavLink style={{ textDecoration: 'none', color: '#ADADAD' }} to='/account'>Account</NavLink>
+                        <NavLink style={{ textDecoration: 'none', color: '#ADADAD' }} to='/about'>About</NavLink>
+                        <NavLink style={{ textDecoration: 'none', color: '#ADADAD' }} to='/Register'>Register</NavLink>
+                        <NavLink style={{ textDecoration: 'none', color: '#ADADAD' }} to='/login'>Login</NavLink>
                     </nav>
                 </div>
 
