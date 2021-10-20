@@ -32,7 +32,7 @@ const Login = () => {
                         <input type="submit" value="Login" className="bg-success px-3 py-2 rounded-3 text-white" />
                     </form>
 
-                    <h1 className="my-3 textColor fw-bold">Or,</h1>
+                    <h1 className="my-3 textColor fw-bold">or you can,</h1>
 
                     <button className="btn btn-warning" onClick={handleGoogleSignIn}>Sign In With Google</button>
 
